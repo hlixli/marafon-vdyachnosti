@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>28-денний Марафон Вдячності | Марафон вдячності</title>
+    <meta name="description" content="28-денний Марафон Вдячності. Старт 3 грудня. Теплі зустрічі, практики та підтримка для відновлення внутрішнього ресурсу.">
+    
+    <meta property="og:title" content="28-денний Марафон Вдячності | Марафон вдячності">
+    <meta property="og:description" content="Теплі Zoom-зустрічі, щоденні практики вдячності та підтримка протягом 28 днів.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com">
+    <meta property="og:image" content="https://your-domain.com/images/cover.jpg">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>">
+
+    <!-- ТІЛЬКИ NUNITO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Palette */
+            --c-gold: #D4AF37;
+            --c-gold-light: #F4E5BC;
+            --c-blue-dark: #1A3A59;
+            --c-blue-main: #2B5C8A;
+            --c-blue-soft: #E8F1F8;
+            --c-green: #5E8B3D;
+            --c-bg: #FDFBF7;
+            --c-white: #FFFFFF;
+            
+            /* Text */
+            --text-main: #2C3E50;
+            --text-muted: #5D7285;
+
+            /* Fonts: один шрифт всюди */
+            --font-main: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-heading: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            
+            /* UI Elements */
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --card-shadow: 0 8px 32px rgba(43, 92, 138, 0.06);
+            --btn-shadow: 0 8px 20px rgba(43, 92, 138, 0.25);
+            
+            /* Layout */
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-pill: 100px;
+        }
+
+        /* Base Reset */
+        * { 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent; 
+        }
+        
+        html { 
+            scroll-behavior: smooth; 
+        }
+        
+        body {
+            font-family: var(--font-main);
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            background-color: var(--c-bg);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E"),
+                              radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                              radial-gradient(circle at 90% 90%, rgba(43, 92, 138, 0.05) 0%, transparent 50%);
+            min-height: 100vh;
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--c-blue-dark);
+            margin-top: 0;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-size: clamp(22px, 3vw, 28px);
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+        p { 
+            margin-bottom: 16px; 
+            font-size: 17px; 
+            color: var(--text-main); 
+        }
+        
+        a { 
+            color: var(--c-blue-main); 
+            text-decoration: none; 
+            transition: 0.2s; 
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        /* Container & Layout */
+        .page-wrapper { 
+            padding-bottom: 80px; 
+            overflow-x: hidden; 
+        }
+
+        .container { 
+            max-width: 1080px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+        
+        @media (min-width: 900px) {
+            .layout-grid {
+                display: grid;
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 40px;
+                align-items: start;
+            }
+            .page-wrapper { padding-bottom: 0; }
+        }
+
+        /* Navigation */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(253, 251, 247, 0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.7);
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .nav-logo {
+            font-weight: 800;
+            font-size: 17px;
+            color: var(--c-blue-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-menu {
+            display: none;
+            gap: 24px;
+        }
+
+        .nav-menu a {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-muted);
+            position: relative;
+        }
+        
+        .nav-menu a:hover { 
+            color: var(--c-blue-main); 
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--c-blue-main), #3a7ab5);
+            color: white;
+            padding: 8px 18px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(43, 92, 138, 0.2);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        .nav-btn:hover { 
+            transform: translateY(-1px); 
+            box-shadow: 0 6px 20px rgba(43, 92, 138, 0.3); 
+            text-decoration: none;
+        }
+
+        @media (min-width: 768px) { 
+            .nav-menu { display: flex; } 
+            .nav-btn { font-size: 15px; padding: 8px 20px; }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 32px 0 20px 0;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero-logo {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 18px;
+            background: radial-gradient(circle at 30% 30%, #fff, #FFE39A, #F4B645);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            box-shadow: 0 0 40px rgba(244, 182, 69, 0.4);
+            border: 4px solid rgba(255,255,255,0.6);
+        }
+
+        .hero-tagline {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--c-blue-main);
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 17px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 22px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: var(--radius-pill);
+            color: var(--c-blue-dark);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            margin-bottom: 22px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
+            opacity: 0.5;
+        }
+
+        .card-highlight {
+            background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(232, 241, 248, 0.7));
+            border-color: rgba(43, 92, 138, 0.18);
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .section-label::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--c-gold);
+            border-radius: 50%;
+        }
+
+        /* Lists */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            font-size: 16px;
+        }
+
+        .feature-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--c-gold);
+            font-size: 14px;
+            top: 3px;
+        }
+
+        /* Steps */
+        .step-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        
+        .step-num {
+            flex-shrink: 0;
+            width: 26px; 
+            height: 26px;
+            background: white;
+            border: 1px solid var(--c-blue-soft);
+            color: var(--c-blue-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* Price */
+        .price-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(0,0,0,0.04);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            gap: 10px;
+        }
+        
+        .price-best {
+            background: linear-gradient(145deg, #fff, #f4f9fd);
+            border: 1px solid rgba(43, 92, 138, 0.2);
+            text-align: center;
+            display: block;
+            padding: 22px 18px;
+            position: relative;
+            border-radius: var(--radius-md);
+        }
+
+        .price-tag-new {
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--c-blue-dark);
+            font-family: var(--font-heading);
+        }
+        
+        .price-tag-old {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 15px;
+            margin-right: 8px;
+        }
+
+        /* Buttons */
+        .btn-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(92deg, var(--c-blue-main) 0%, #3a7ab5 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 17px;
+            border-radius: var(--radius-pill);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--btn-shadow);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .btn-main::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.2), transparent);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(43, 92, 138, 0.35);
+            text-decoration: none;
+        }
+        
+        .btn-main:hover::after { opacity: 1; }
+        
+        .btn-main:active { transform: translateY(0); }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .faq-btn {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 14px 0;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--c-blue-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        .faq-item.active .faq-content { 
+            max-height: 300px; 
+            padding-bottom: 12px; 
+        }
+        .faq-icon { 
+            transition: 0.3s; 
+        }
+        .faq-item.active .faq-icon { 
+            transform: rotate(45deg); 
+        }
+
+        /* Mobile Sticky Bar */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(16px);
+            padding: 10px 16px 16px;
+            z-index: 99;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            display: none;
+        }
+        
+        @media (max-width: 767px) { 
+            .sticky-cta { display: block; } 
+        }
+
+        /* Utils */
+        .text-center { text-align: center; }
+        .text-sm { font-size: 14px; }
+        .text-green { color: var(--c-green); }
+        .mt-4 { margin-top: 20px; }
+        .divider { height: 1px; background: rgba(0,0,0,0.06); margin: 20px 0; }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        
+        .pulse { animation: pulse 2s infinite; }
+
+        /* ДОДАТКОВА МОБІЛЬНА АДАПТАЦІЯ */
+        @media (max-width: 767px) {
+            body {
+                font-size: 15px;
+            }
+
+            .hero {
+                padding-top: 24px;
+            }
+
+            .hero-logo {
+                width: 80px;
+                height: 80px;
+                font-size: 36px;
+                margin-bottom: 16px;
+            }
+
+            .hero-tagline {
+                font-size: 16px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+                margin-bottom: 18px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .card {
+                padding: 18px 16px;
+                margin-bottom: 18px;
+            }
+
+            .feature-list li {
+                font-size: 15px;
+            }
+
+            .step-item {
+                align-items: flex-start;
+            }
+
+            .price-tag-new {
+                font-size: 26px;
+            }
+
+            .price-card {
+                font-size: 14px;
+                padding: 12px 14px;
+            }
+
+            footer {
+                font-size: 13px;
+            }
+        }
+    </style>
+
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        // Вставте ваш ID
+        fbq('init', 'ВАШ_ID_ПІКСЕЛЯ'); 
+        fbq('track', 'PageView');
+        fbq('track', 'ViewContent', { content_name: 'Gratitude Marathon Landing' });
+
+        // Універсальна функція для трекінгу кліків
+        function trackEvent(eventName, params = {}) {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', eventName, params);
+            }
+            return true;
+        }
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=ВАШ_ID_ПІКСЕЛЯ&ev=PageView&noscript=1"
+    /></noscript>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="container nav-inner">
+            <div class="nav-logo">
+                <span style="font-size: 20px;">☀️</span> Марафон вдячності
+            </div>
+            <div class="nav-menu">
+                <a href="#about">Про марафон</a>
+                <a href="#program">Програма</a>
+                <a href="#price">Умови</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <a href="ПОСИЛАННЯ_НА_ТЕЛЕГРАМ" class="nav-btn" onclick="trackEvent('Lead', {location: 'header'})">Приєднатися</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <div class="container">
+            
+            <div class="layout-grid">
+                <div>
+                    <header class="hero" id="top">
+                        <div class="hero-logo pulse">☀️</div>
+                        <div class="hero-badge">📅 Старт 3 грудня</div>
+                        <h1>Марафон Вдячності: Повернення до світла</h1>
+                        <p class="hero-tagline">Через вдячність до добробуту</p>
+                        <p class="hero-subtitle">«Не чекаючи ідеального моменту — бережно повертаємо опору, теплоту й відчуття життя.»</p>
+                        
+                        <p style="color: var(--text-main); max-width: 520px; margin: 0 auto 26px;">
+                            28 днів м'яких практик, теплих зустрічей та підтримки, щоб навчитися помічати добро навіть у найтемніші часи.
+                        </p>
+
+                        <a href="ПОСИЛАННЯ_НА_ТЕЛЕГРАМ" class="btn-main" onclick="trackEvent('InitiateCheckout', {content_name: 'Hero Button', value: 4480, currency: 'UAH'})">
+                            <span>Хочу в простір вдячності</span>
+                            <span>💛</span>
+                        </a>
+                        <p class="text-sm text-center" style="margin-top: 8px; opacity: 0.7;">Перехід у Telegram</p>
+                    </header>
+
+                    <section class="card card-highlight" id="about">
+                        <div class="section-label">Про марафон</div>
+                        <h2>Що це за 28 днів?</h2>
+                        <p>Ми не будемо ігнорувати реальність. Ми будемо вчитися жити в ній, спираючись на те, що у нас є.</p>
+                        <ul class="feature-list">
+                            <li><strong>Тренуємо "м'яз вдячності":</strong> помічаємо світло в буднях, а не тільки у свята.</li>
+                            <li><strong>Відновлюємо ресурс:</strong> прості техніки для зняття напруги.</li>
+                            <li><strong>Живе коло:</strong> щотижневі Zoom-зустрічі для обміну теплом.</li>
+                        </ul>
+                    </section>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    
+                    <section class="card" id="program">
+                        <div class="section-label">Як це працює</div>
+                        <h2>Ваш день на марафоні</h2>
+                        <div class="step-item">
+                            <div class="step-num">1</div>
+                            <div>
+                                <strong>Ранкове налаштування</strong>
+                                <div class="text-sm text-muted">Коротке повідомлення або аудіо для гарного старту.</div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">2</div>
+                            <div>
+                                <strong>Мікро-практика</strong>
+                                <div class="text-sm text-muted">Завдання на 5-10 хвилин, яке легко вписати в графік.</div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">3</div>
+                            <div>
+                                <strong>Підтримка</strong>
+                                <div class="text-sm text-muted">Чат однодумців та мої відповіді на питання.</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="card" id="price">
+                        <div class="section-label">Вартість участі</div>
+                        <h2 class="text-center">Оберіть свій формат</h2>
+                        
+                        <div class="price-card">
+                            <div>
+                                <strong>Соціальне місце</strong>
+                                <div class="text-sm text-muted">Для військових та волонтерів</div>
+                            </div>
+                            <div class="text-green" style="font-weight:700;">-50%</div>
+                        </div>
+
+                        <div class="price-card">
+                            <div>
+                                <strong>Оплата по днях</strong>
+                                <div class="text-sm text-muted">Гнучкий підхід</div>
+                            </div>
+                            <div><strong>200 ₴</strong></div>
+                        </div>
+
+                        <div class="price-best mt-4">
+                            <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--c-gold); color:white; padding:4px 12px; font-size:12px; border-radius:10px; font-weight:700;">НАЙКРАЩИЙ ВИБІР</div>
+                            <div style="margin-bottom: 8px;">Повний курс (28 днів)</div>
+                            <div>
+                                <span class="price-tag-old">5600 ₴</span>
+                                <span class="price-tag-new">4480 ₴</span>
+                            </div>
+                            <div class="text-sm text-green mt-4">Економія 20% при повній оплаті</div>
+                            <a href="ПОСИЛАННЯ_НА_ТЕЛЕГРАМ" class="btn-main mt-4" style="font-size: 16px; padding: 14px;" onclick="trackEvent('InitiateCheckout', {content_name: 'Price Card', value: 4480, currency: 'UAH'})">Забронювати місце</a>
+                        </div>
+                    </section>
+
+                    <section class="card" id="faq">
+                        <div class="section-label">Питання</div>
+                        <h3 style="font-size: 20px; margin-bottom: 8px;">Важливо знати</h3>
+                        
+                        <div class="faq-item">
+                            <button class="faq-btn">Чи будуть записи ефірів? <span class="faq-icon">+</span></button>
+                            <div class="faq-content">Так, всі Zoom-зустрічі записуються і доступні в зручний для вас час.</div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-btn">Скільки часу це займає? <span class="faq-icon">+</span></button>
+                            <div class="faq-content">Достатньо 10-15 хвилин на день. Ми цінуємо ваш час і не перевантажуємо.</div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-btn">Можна частинами? <span class="faq-icon">+</span></button>
+                            <div class="faq-content">Звісно. Напишіть мені в Telegram, і ми узгодимо зручний графік оплат.</div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+            <footer class="text-center text-muted text-sm" style="margin-top: 32px; margin-bottom: 40px;">
+                Зроблено з любов'ю 💛<br>
+                &copy; 2025 Марафон вдячності
+            </footer>
+
+        </div>
+    </div>
+
+    <div class="sticky-cta">
+        <a href="ПОСИЛАННЯ_НА_ТЕЛЕГРАМ" class="btn-main" style="padding: 14px; font-size: 16px;" onclick="trackEvent('Lead', {location: 'sticky_mobile'})">
+            Приєднатися до марафону 💌
+        </a>
+    </div>
+
+    <script>
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
